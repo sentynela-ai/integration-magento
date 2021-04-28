@@ -70,7 +70,7 @@ class BuilderCheckoutOrder implements Builder
             $orderItem->setTotalValue($orderItemInterface->getPrice());
             $orderItem->setDeliveryId(0);
 
-            $category = $this->factory->getCategoryFromProdutId($orderItemInterface->getProductId());
+            $category = $this->factory->getCategoryFromProductId($orderItemInterface->getProductId());
 
             $orderItemCategory = new OrderItemCategory();
             $orderItemCategory->setCategoryName($category->getName());
