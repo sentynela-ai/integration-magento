@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <section_settings_general>
+            <general_settings>
+                <plugin_active>3</plugin_active>
+            </general_settings>
+        </section_settings_general>
+        <section_settings_address>
+            <address_settings>
+                <street_line>1</street_line>
+                <number_line>2</number_line>
+                <complement_line>3</complement_line>
+                <neighborhood_line>4</neighborhood_line>
+            </address_settings>
+        </section_settings_address>
+    </default>
+</config>

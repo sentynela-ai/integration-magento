@@ -1,0 +1,15 @@
+<?php if ($this->isPluginActive()): ?>
+    <script type="text/javascript">
+        (function (a, b, c, d, e, f, g) {
+            a['SenfObject'] = e; a[e] = a[e] || function () { (a[e].q = a[e].q || []).push(arguments) }, a[e].l = 1 * new Date();
+            f = b.createElement(c), g = b.getElementsByTagName(c)[0]; f.async = true; f.src = d; g.parentNode.insertBefore(f, g)
+        })
+        (window, document, 'script', 'https://f.sen.seg.br/files/plugin/sen.js', 'senf');
+
+        senf('sc', '<?= $this->getStoreCode() ?>');
+
+        <?php if (!empty($this->getCustomerId())): ?>
+            senf('ci', '<?= $this->getCustomerId() ?>');
+        <?php endif ?>
+    </script>
+<?php endif ?>

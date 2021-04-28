@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <system>
+        <tab id="sentynela" translate="label" class="separator-top" sortOrder="10">
+            <label>Sentynela</label>
+        </tab>
+        <section id="section_settings_general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <tab>sentynela</tab>
+            <label>Geral</label>
+            <resource>Sentynela_FraudDetector::config</resource>
+            <group id="general_settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Ativação do Plugin</label>
+                <field id="plugin_active" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativação</label>
+                    <comment>
+                        <![CDATA[
+                            <strong>Ativado</strong>: Será feita a coleta de dados, a análise e aprovação/cancelamento da ordem.
+                            <br/>
+                            <strong>Sandobox</strong>: Será feita a coleta de dados e análise da ordem.
+                            <br/>
+                            <strong>Desativado</strong>: Não será feita coleta de dados e análise da ordem.
+                        ]]>
+                    </comment>
+                    <source_model>Sentynela\FraudDetector\Model\Config\Source\ActivationOptions</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="section_settings_address" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <tab>sentynela</tab>
+            <label>Endereço</label>
+            <resource>Sentynela_FraudDetector::config</resource>
+            <group id="address_settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Mapeamento dos Endereços</label>
+                <field id="street_line" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Rua</label>
+                    <source_model>Sentynela\FraudDetector\Model\Config\Source\AddressOptions</source_model>
+                </field>
+                <field id="number_line" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Número</label>
+                    <source_model>Sentynela\FraudDetector\Model\Config\Source\AddressOptions</source_model>
+                </field>
+                <field id="complement_line" translate="label comment" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Complemento</label>
+                    <source_model>Sentynela\FraudDetector\Model\Config\Source\AddressOptions</source_model>
+                </field>
+                <field id="neighborhood_line" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Bairro</label>
+                    <source_model>Sentynela\FraudDetector\Model\Config\Source\AddressOptions</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="section_settings_payment" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <tab>sentynela</tab>
+            <label>Pagamento</label>
+            <resource>Sentynela_FraudDetector::config</resource>
+            <group id="payment_settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Mapeamento do Pagamento</label>
+                <field id="payment_method_analysis" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Pagamento à ser analisado</label>
+                    <source_model>Sentynela\FraudDetector\Model\Config\Source\PaymentOptions</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="section_settings_identification" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <tab>sentynela</tab>
+            <label>Identificação</label>
+            <resource>Sentynela_FraudDetector::config</resource>
+            <group id="identification_settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Dados de Identificação</label>
+                <field id="store_id" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Código da Loja</label>
+                </field>
+                <field id="store_login" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Login</label>
+                </field>
+                <field id="store_password" translate="label comment" type="password" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Senha</label>
+                </field>
+                <field id="store_url_analysis" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>URL Análise</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

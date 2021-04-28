@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block name="meta.sen_tags" class="Magento\Catalog\Block\Product\View\Description" template="Sentynela_FraudDetector::catalog_product_view.phtml" />
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block name="meta.sen_script" class="Sentynela\FraudDetector\Block\FingerprintData" template="Sentynela_FraudDetector::default.phtml" />
+        </referenceContainer>
+    </body>
+</page>
