@@ -13,7 +13,7 @@ use Magento\Store\Model\ScopeInterface;
 use Sentynela\FraudDetector\Helper\Data;
 
 /**
- * Class FingerprintData
+ * Class FingerprintData. Custom data for use on Fingerprint plugin.
  * @package Sentynela\FraudDetector\Helper
  * @author Jean Poffo
  */

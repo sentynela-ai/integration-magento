@@ -20,7 +20,7 @@ use Sentynela\FraudDetector\Helper\Data;
 use Sentynela\FraudDetector\Utils\ArrayUtils;
 
 /**
- * Class FactoryOrder, to Factory some data of Order.
+ * Class FactoryOrder. To factory data of Order.
  * @package Sentynela\FraudDetector\Factory
  * @author Jean Poffo
  */

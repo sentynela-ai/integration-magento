@@ -57,8 +57,9 @@ class BuilderCheckoutOrder implements Builder
     public function buildOrder(): void
     {
         $this->checkout->getOrder()->setId($this->factory->getOrder()->getEntityId());
-        $this->checkout->getOrder()->setCode($this->factory->getOrder()->getEntityId());
+        $this->checkout->getOrder()->setCode($this->factory->getOrder()->getIncrementId());
         $this->checkout->getOrder()->setDatetime($this->factory->getOrder()->getCreatedAt());
+        $this->checkout->getOrder()->setStatus($this->factory->getOrder()->getStatus());
         $this->checkout->getOrder()->setProductValue($this->factory->getOrder()->getGrandTotal() - $this->factory->getOrder()->getShippingAmount());
         $this->checkout->getOrder()->setTotalValue($this->factory->getOrder()->getGrandTotal());
 
@@ -197,4 +198,5 @@ class BuilderCheckoutOrder implements Builder
     {
         return $this->checkout;
     }
+
 }

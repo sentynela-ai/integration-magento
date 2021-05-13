@@ -6,7 +6,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 
 /**
- * Class Data
+ * Class Data. Data from configs on Dashboard.
  * @package Sentynela\FraudDetector\Helper
  */
 class Data
@@ -14,7 +14,7 @@ class Data
 
     const PLUGIN_ACTIVE_OPTION_ACTIVE = 1;
     const PLUGIN_ACTIVE_OPTION_SANDBOX = 2;
-    const PLUGIN_ACTIVE_OPTION_DESACTIVE = 3;
+    const PLUGIN_ACTIVE_OPTION_DEACTIVATED = 3;
 
     const PLUGIN_ACTIVE = 'section_settings_general/general_settings/plugin_active';
 
@@ -22,6 +22,9 @@ class Data
     const ADDRESS_NUMBER_LINE = 'section_settings_address/address_settings/number_line';
     const ADDRESS_COMPLEMENT_LINE = 'section_settings_address/address_settings/complement_line';
     const ADDRESS_NEIGHBORHOOD_LINE = 'section_settings_address/address_settings/neighborhood_line';
+
+    const STATUS_AFTER_APPROVE = 'section_settings_status/status_settings/status_after_approve';
+    const STATUS_AFTER_REPROVE = 'section_settings_status/status_settings/status_after_reprove';
 
     const PAYMENT_METHOD_ANALYSIS = 'section_settings_payment/payment_settings/payment_method_analysis';
 
@@ -57,9 +60,9 @@ class Data
         return $this->getPluginActive() === self::PLUGIN_ACTIVE_OPTION_SANDBOX;
     }
 
-    public function isPluginDesactive(): bool
+    public function isPluginDeactivated(): bool
     {
-        return $this->getPluginActive() === self::PLUGIN_ACTIVE_OPTION_DESACTIVE;
+        return $this->getPluginActive() === self::PLUGIN_ACTIVE_OPTION_DEACTIVATED;
     }
 
     public function getAddressStreetLine(): int
@@ -80,6 +83,16 @@ class Data
     public function getAddressNeighborhoodLine(): int
     {
         return (int) $this->scopeConfig->getValue(self::ADDRESS_NEIGHBORHOOD_LINE, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getStatusAfterApprove(): string
+    {
+        return (string) $this->scopeConfig->getValue(self::STATUS_AFTER_APPROVE, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getStatusAfterReprove(): string
+    {
+        return (string) $this->scopeConfig->getValue(self::STATUS_AFTER_REPROVE, ScopeInterface::SCOPE_STORE);
     }
 
     public function getPaymentMethodAnalysis(): string

@@ -14,5 +14,11 @@
                 <neighborhood_line>4</neighborhood_line>
             </address_settings>
         </section_settings_address>
+        <section_settings_status>
+            <status_settings>
+                <status_after_approve>processing</status_after_approve>
+                <status_after_reprove>canceled</status_after_reprove>
+            </status_settings>
+        </section_settings_status>
     </default>
 </config>

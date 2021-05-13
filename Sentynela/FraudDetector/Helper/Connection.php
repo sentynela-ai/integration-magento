@@ -3,7 +3,7 @@
 namespace Sentynela\FraudDetector\Helper;
 
 /**
- * Class Connection
+ * Class Connection. To build HTTP requests.
  * @package Sentynela\FraudDetector\Factory
  * @author Jean Poffo
  */

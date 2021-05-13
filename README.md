@@ -46,10 +46,13 @@ Para instalação do Plugin
 
 
 - Após fazer o download do .zip, extrair para a pasta app/code (dentro da pasta raíz do Magento).
-- Executar o comando:
+- Executar os comandos:
 
 ```
 php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+php bin/magento cache:flush
 ```
 
 ## ⚙️ Configurando <a name = "configurando"></a>
