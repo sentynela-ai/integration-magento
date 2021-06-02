@@ -48,20 +48,23 @@ class OrderStatusChange extends PluginBase
 
             $response = json_decode($responseString);
 
-            if (isset($response->status) && $response->status === self::SENTYNELA_STATUS_NOT_FOUND) {
-                $this->builderCheckoutOrder->getFactory()->loadOrder($this->order);
+            if (!isset($response->order)) {
+                if (isset($response->status) && $response->status === self::SENTYNELA_STATUS_NOT_FOUND) {
+                    $this->builderCheckoutOrder->getFactory()->loadOrder($this->order);
 
-                $director = new Director($this->builderCheckoutOrder);
-                $director->make();
+                    $director = new Director($this->builderCheckoutOrder);
+                    $director->make();
 
-                $checkout = $this->builderCheckoutOrder->getCheckout();
+                    $checkout = $this->builderCheckoutOrder->getCheckout();
 
-                $this->connection->createPost('save', $checkout);
-            } else {
-                $this->logger->error('Bad response on connect to Sentynela', [
-                    'response' => $response,
-                    'plugin' => 'Send Order to Update Status'
-                ]);
+                    $this->connection->createPost('save', $checkout);
+                }
+                else {
+                    $this->logger->error('Bad response on connect to Sentynela', [
+                        'response' => json_encode($response),
+                        'plugin' => 'Send Order to Update Status'
+                    ]);
+                }
             }
         } catch (Exception $e) {
             $this->logger->error('Error on connect to Sentynela', [

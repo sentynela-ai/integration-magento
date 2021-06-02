@@ -27,7 +27,6 @@ class OrderAfterPayment extends PluginBase
             $this->sendOrderToAnalysisSentynela();
         }
 
-
         return $orderId;
     }
 
@@ -43,10 +42,10 @@ class OrderAfterPayment extends PluginBase
 
             $responseString = $this->connection->createPost('predict', $data);
 
-            if (!$this->isPluginSandbox()) {
-                $response = json_decode($responseString);
+            $response = json_decode($responseString);
 
-                if (isset($response->status) && $response->status === self::SENTYNELA_STATUS_SUCCESS) {
+            if (isset($response->status) && $response->status === self::SENTYNELA_STATUS_SUCCESS) {
+                if (!$this->isPluginSandbox()) {
                     switch ($response->result) {
                         case self::SENTYNELA_STATUS_ORDER_REPROVED:
                             if ($this->isStatusAfterReproveCancel()) {
@@ -66,12 +65,12 @@ class OrderAfterPayment extends PluginBase
                             $this->registryHistoryOnOrder('Sentynela - Order Approved');
                             break;
                     }
-                } else {
-                    $this->logger->error('Bad response on connect to Sentynela', [
-                        'response' => $response,
-                        'plugin' => 'Send Order to Analysis'
-                    ]);
                 }
+            } else {
+                $this->logger->error('Bad response on connect to Sentynela', [
+                    'response' => json_encode($response),
+                    'plugin' => 'Send Order to Analysis'
+                ]);
             }
         } catch (Exception $e) {
             $this->logger->error('Error on connect to Sentynela', [
