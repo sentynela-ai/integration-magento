@@ -16,7 +16,7 @@ class StringUtils
      */
     public static function createPhrase(...$params): string
     {
-        return implode(array_filter($params), ' ');
+        return implode(' ', array_filter($params));
     }
 
     /**
